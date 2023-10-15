@@ -1,0 +1,26 @@
+{
+  "name": "crud_app",
+  "version": "1.0.0",
+  "description": "Crud Application with express and mongodb",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "keywords": [
+    "crud",
+    "mongodb"
+  ],
+  "author": "Anil K",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.5.1",
+    "body-parser": "^1.20.2",
+    "dotenv": "^16.3.1",
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "mongoose": "^7.6.2",
+    "morgan": "^1.10.0",
+    "nodemon": "^3.0.1"
+  }
+}
