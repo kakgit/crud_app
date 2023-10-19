@@ -3,6 +3,7 @@
 if(location.pathname == "/")
 {
     localStorage.setItem("lsUrl", window.location.href);
+    alert("test from VM");
 }
 
 //alert(localStorage.getItem("lsUrl"))
