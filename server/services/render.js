@@ -3,7 +3,7 @@ const axios = require("axios");
 
 exports.homeRoute = (req, res) => {
     //Make a get request to /api/users
-    axios.get('http://localhost:3000/api/users')
+    axios.get(process.env.API_PATH + 'api/users')
     .then(function(response){
         //console.log(response);
         //res.send("Crud Application");
@@ -19,7 +19,7 @@ exports.addUser = (req, res) => {
 }
 
 exports.updateUser = (req, res) => {
-    axios.get('http://localhost:3000/api/users', { params : {id: req.query.id}})
+    axios.get(process.env.API_PATH + 'api/users', { params : {id: req.query.id}})
     .then(function(userData){
         res.render("update_user.ejs", {user : userData.data});
     })

@@ -1,14 +1,25 @@
 
 
+if(location.pathname == "/")
+{
+    localStorage.setItem("lsUrl", window.location.href);
+}
+
+//alert(localStorage.getItem("lsUrl"))
+
 $("#add_user").submit(function(e)
 {
+    let vDomainName = localStorage.getItem("lsUrl");
+    
     //alert("Data Inserted Successfully");
-    location.replace('http://localhost:3000/');
+    location.replace(vDomainName);
 });
 
 
 $("#update_user").submit(function(e)
 {
+    let vDomainName = localStorage.getItem("lsUrl");
+
     e.preventDefault();
    
     let unindexed_array = $(this).serializeArray();
@@ -23,7 +34,7 @@ $("#update_user").submit(function(e)
     //console.log(data);
 
     let request = {
-        "url" : `http://localhost:3000/api/users/${data.id}`,
+        "url" : `${vDomainName}api/users/${data.id}`,
         "method" : "PUT",
         "data": data
     };
@@ -31,7 +42,7 @@ $("#update_user").submit(function(e)
     $.ajax(request).done(function(response)
     {
         alert("Data Updated Successfully");
-        location.replace('http://localhost:3000/');
+        location.replace(vDomainName);
     });
 });
 
@@ -60,8 +71,9 @@ $("#update_user").submit(function(e)
 
 function fnDeleteUser(objRecId)
 {
+    let vDomainName = localStorage.getItem("lsUrl");
     let vRecId = $(objRecId).attr("data-id");
-    let vUrl = `http://localhost:3000/api/testUser/${vRecId}`;
+    let vUrl = `${vDomainName}api/testUser/${vRecId}`;
 
     //alert(vRecId);
 
@@ -87,7 +99,7 @@ function fnDeleteUser(objRecId)
     
             // Printing our field of our response
             console.log(`Client :  ${string.message}`);
-            location.reload();
+            location.replace(vDomainName);
         })
         .catch(errorMsg => {
             console.log(errorMsg);
