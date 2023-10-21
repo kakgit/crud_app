@@ -9,6 +9,8 @@
             <a href="/addUser" class="border-shadow">
                 <span class="text-gradient">New User<i class="fas fa-user"></i></span>
             </a>
+            <input type="text" placeholder="Enter Message" id="txtMsg" />
+            <button id="btnSendMsg" onclick="fnSendMessage();">Click to Test</button>
         </div>
 
         <!--Form handling-->
@@ -26,6 +28,9 @@
                 </thead>
                 <tbody>
                         <%- include('include/_showUsers.ejs') %>
+
+                        <div id="divMsgs">
+                        </div>
                 </tbody>
             </table>
         </form>

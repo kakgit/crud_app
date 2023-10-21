@@ -1,9 +1,41 @@
 
 
+// function fnCreateConnection()
+// {
+//     const socket = io();
+// }
+//Connection can be started inside the function as above when ever it is needed. Test This Later....
+
+const socket = io();
+const objSendBtn = document.getElementById("btnSendMsg");
+
+socket.on("ServerEmit", (pMsg) => {
+    let objMsgDiv = document.getElementById("divMsgs");
+
+    objMsgDiv.innerHTML += pMsg + "<br/>";
+    //console.log("from Server: " + pMsg);
+});
+
+// objSendBtn.addEventListener("click", (e) => {
+//     const objMessage = document.getElementById("txtMsg");
+
+//     //console.log(objMessage.value);
+//     socket.emit("UserMessage", objMessage.value);
+// });
+
+
+function fnSendMessage()
+{
+    const objMessage = document.getElementById("txtMsg");
+
+    //console.log(objMessage.value);
+    socket.emit("UserMessage", objMessage.value);
+    
+}
+
 if(location.pathname == "/")
 {
     localStorage.setItem("lsUrl", window.location.href);
-    alert("test from VM");
 }
 
 //alert(localStorage.getItem("lsUrl"))
